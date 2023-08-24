@@ -74,8 +74,34 @@ export default function MobileMenu() {
               Sign up
             </Link>
           </li>
+          <li>
+            <Link href="/signin" prefetch={false} className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
+          Data Analysis
+            </Link>
+          </li> <li>
+            <Link href="/signin" prefetch={false} className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
+              DataLake
+            </Link>
+          </li> <li>
+            <Link href="/signin" prefetch={false} className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
+              DataSharing
+            </Link>
+          </li> <li>
+            <Link href="/signin" prefetch={false} className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
+              Data WareHousing
+            </Link>
+          </li>  
+          <li>
+            <Link href="/signin" prefetch={false} className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
+              Data Governance
+            </Link>
+          </li>
         </ul>
+        
       </nav>
     </div>
+    
+
+    
   )
 }

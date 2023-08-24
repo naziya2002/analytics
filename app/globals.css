@@ -25,3 +25,27 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+#divone{
+
+  margin-left: 200px;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-right: 0;
+
+}
+
+#pone
+{
+  width: 100%;
+  padding: 30px;  
+}
+#mainhead
+{
+  font-size: 3vmax;
+  font-weight: bold;
+  margin-left: 450px;
+  padding-top: 50px;
+
+  
+}

@@ -5,8 +5,8 @@ import Link from 'next/link'
 import React,{useEffect} from "react"
 import { useRouter } from 'next/navigation'
 import axios from 'axios';
-import {toast} from "react-toastify"
-
+// import {toast} from "react-toastify"
+import toast from "react-hot-toast"
 
 export const metadata = {
   title: 'Sign In - Open PRO',
@@ -15,30 +15,74 @@ export const metadata = {
 
 }
 
+
 export default function SignIn() {
 const router=useRouter()
+const [buttonDisabled,setButtonDisabled]=React.useState(false)
+const [loading,setLoading]=React.useState(false)
   const [user,setUser]=React.useState({
     email:"",
     password:"",
    
   })
-  const onSignIn=async()=>{
-    try{
-      const response =await axios.post("/api/users/signin",user)
-      console.log("signup sucess",response.data);
+//   const onSignIn=async(event)=>{
+//     event.preventDefault(); // Prevent the default form submission behavior
+
+//     try{
+//       setLoading(true);
+//       const response =await axios.post("/api/users/signin",user)
+//       console.log("signup sucess",response.data);
      
     
-      toast.success('LoginSucess');
+//       toast.success('LoginSucess');
 
-       router.push("/sigup");
-  }catch(error:any){
-    useEffect(() => {
-      alert(error.messages);
-    }, [])
-              toast.error(error.message)
-  }
+//        router.push("/sigup");
+//   }catch(error:any){
+//     console.log("Login failed",error.message)
+//     toast.error(error.message)
 
+//   }finally{
+//     setLoading(false)
+//   }
+// }
+
+const onSignIn = async (event:any) => {
+   event.preventDefault(); // Prevent the default form submission behavior
+
+  try {
+    // Check if the user has provided both email and password
+    if (!user.email || !user.password) {
+      console.log("Please provide both email and password.");
+      toast.error("Please provide both email and password.");
+      return;
+    }
+
+    setLoading(true);
+    const response = await axios.post("/api/users/signin", user);
+    console.log("signup success", response.data);
+    toast.success("Login Success");
+    
+    // Replace "/dashboard" with the appropriate route for the destination page
+    router.push("/");
+  } catch (error:any) {
+    console.log("Login failed", error.message);
+    toast.error(error.message);
+  } finally {
+    setLoading(false);
   }
+};
+
+  useEffect(() => {
+    if(user.email.length>0 && user.password.length>0 ){
+      setButtonDisabled(false);
+      }else{
+        setButtonDisabled(true);
+      }
+
+     }, [user])
+           
+
+
   
   return (
     <section className="relative">
@@ -47,7 +91,7 @@ const router=useRouter()
 
           {/* Page header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h1 className="h1">Welcome back. We exist to make entrepreneurship easier.</h1>
+            <h1 className="h1">{loading?"Processing":"Login"}</h1>
           </div>
 
           {/* Form */}
@@ -97,7 +141,7 @@ const router=useRouter()
                       <input type="checkbox" className="form-checkbox" />
                       <span className="text-gray-400 ml-2">Keep me signed in</span>
                     </label>
-                    <Link href="/reset-password" className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" >Forgot Password?</Link>
+                    <Link href="/reset-password" prefetch={false} className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" >Forgot Password?</Link>
                   </div>
                 </div>
               </div>
@@ -108,7 +152,7 @@ const router=useRouter()
               </div>
             </form>
             <div className="text-gray-400 text-center mt-6">
-              Don’t you have an account? <Link href="/signup" className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out">Sign up</Link>
+              Don’t you have an account? <Link href="/signup" prefetch={false} className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out">Sign up</Link>
             </div>
           </div>
 

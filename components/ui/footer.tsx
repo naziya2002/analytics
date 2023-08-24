@@ -47,10 +47,6 @@ export default function Footer() {
                 <h6 className="text-gray-200 font-medium mb-1">Resources</h6>
                 <ul>
                   <li className="mb-1">
-                  
-
-
-
                     <Link href="/" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Data lake</Link>
                   </li>
                   <li className="mb-1">
@@ -63,8 +59,7 @@ export default function Footer() {
                     <Link href="/" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Big data</Link>
                   </li>
                   <li className="mb-1">
-                    <Link href="/" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">
-Data warehousing</Link>
+                    <Link href="/" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Data warehousing</Link>
                   </li>
                 </ul>
               </div>

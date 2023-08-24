@@ -19,7 +19,7 @@ console.log(reqBody)
 //check if user alredy exists
 const user=await User.findOne({email})
 if(user){
-    toast.success("User aLredy Exist")
+    
 
     return NextResponse.json({error:"User alredy exists"},
     {status:400})
@@ -36,7 +36,7 @@ const newUser =new User({
 })
 const savedUser=await newUser.save()
 console.log(savedUser);
-toast.success("UserCreated")
+
 
 return NextResponse.json({
     
