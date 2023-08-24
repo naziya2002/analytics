@@ -1,9 +1,9 @@
 "use client";
 
-export const metadata = {
-  title: 'Sign Up - Open PRO',
-  description: 'Page description',
-}
+// export const metadata = {
+//   title: 'Sign Up - Open PRO',
+//   description: 'Page description',
+// }
 // import {Axios} from 'axios';
 import axios from 'axios';
 

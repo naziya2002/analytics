@@ -8,12 +8,12 @@ import axios from 'axios';
 // import {toast} from "react-toastify"
 import toast from "react-hot-toast"
 
-export const metadata = {
-  title: 'Sign In - Open PRO',
-  description: 'Page description',
-  noPreload: true,
+// export const metadata = {
+//   title: 'Sign In - Open PRO',
+//   description: 'Page description',
+//   noPreload: true,
 
-}
+// }
 
 
 export default function SignIn() {
